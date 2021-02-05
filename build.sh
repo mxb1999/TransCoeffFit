@@ -1,7 +1,7 @@
 pName="main.Main"
-jfiles=("fit" "main" "uihandler")
+jfiles=("fit" "main" "uihandler" "plot")
 printf "Compiling Java Project\n"
-javac src/*/*.java -Xdiags:verbose -d  classes
+javac --module-path $PATH_TO_FX --add-modules javafx.controls src/*/*.java -Xdiags:verbose -Xlint -d  classes
 
 cd classes
-java $pName
+java --module-path $PATH_TO_FX --add-modules javafx.controls $pName
